@@ -68,7 +68,8 @@ class VASNet(nn.Module):
     def __init__(self):
         super(VASNet, self).__init__()
 
-        self.m = 1024 # cnn features size
+        # Adjust for CLIP viT-B/32 feature size
+        self.m = 768 # originally 1014 of cnn features size
         self.hidden_size = 1024
 
         self.att = SelfAttention(input_size=self.m, output_size=self.m)
