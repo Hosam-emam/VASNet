@@ -1,7 +1,10 @@
 # A Dynamic Programming based Python Program for 0-1 Knapsack problem
 # Returns the maximum value that can be put in a knapsack of capacity W
 import numpy as np
-from ortools.algorithms import pywrapknapsack_solver
+try:
+    from ortools.algorithms import pywrapknapsack_solver
+except ImportError:
+    pywrapknapsack_solver = None
 
 
 def knapsack(W, wt, val, n):
@@ -130,10 +133,13 @@ def test_knapsack_dp():
 
 
 
-osolver = pywrapknapsack_solver.KnapsackSolver(
-    # pywrapknapsack_solver.KnapsackSolver.KNAPSACK_MULTIDIMENSION_BRANCH_AND_BOUND_SOLVER,
-    pywrapknapsack_solver.KnapsackSolver.KNAPSACK_DYNAMIC_PROGRAMMING_SOLVER,
-    'test')
+if pywrapknapsack_solver is not None:
+    osolver = pywrapknapsack_solver.KnapsackSolver(
+        pywrapknapsack_solver.KnapsackSolver.KNAPSACK_DYNAMIC_PROGRAMMING_SOLVER,
+        'test'
+    )
+else:
+    osolver = None
 
 def knapsack_ortools(values, weights, items, capacity ):
     scale = 1000

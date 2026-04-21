@@ -15,8 +15,8 @@ Modifications by Jiri Fajtl
 '''
 
 import numpy as np
-#from knapsack import knapsack_dp
-from knapsack import knapsack_ortools
+from knapsack import knapsack_dp
+#from knapsack import knapsack_ortools
 import math
 
 
@@ -54,8 +54,8 @@ def generate_summary(ypred, cps, n_frames, nfps, positions, proportion=0.15, met
     limits = int(math.floor(n_frames * proportion))
 
     if method == 'knapsack':
-        #picks = knapsack_dp(seg_score, nfps, n_segs, limits)
-        picks = knapsack_ortools(seg_score, nfps, n_segs, limits)
+        picks = knapsack_dp(seg_score, nfps, n_segs, limits)
+        #picks = knapsack_ortools(seg_score, nfps, n_segs, limits)
     elif method == 'rank':
         order = np.argsort(seg_score)[::-1].tolist()
         picks = []

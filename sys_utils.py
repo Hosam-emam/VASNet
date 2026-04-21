@@ -15,7 +15,7 @@ import pkg_resources
 import torch
 import h5py
 import json
-import ortools
+#import ortools
 from torch.nn.modules.module import _addindent
 # import PIL as Image
 # import cv2
@@ -74,7 +74,7 @@ def ge_pkg_versions():
     dep_versions['numpy'] = np.__version__
     dep_versions['h5py'] = h5py.__version__
     dep_versions['json'] = json.__version__
-    dep_versions['ortools'] = ortools.__version__
+    #dep_versions['ortools'] = ortools.__version__
     dep_versions['torchvision'] = pkg_resources.get_distribution("torchvision").version
 
     # dep_versions['PIL'] = Image.VERSION
