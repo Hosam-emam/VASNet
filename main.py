@@ -1,7 +1,7 @@
 import sys
 
 # Update this path to the exact name of your uploaded utility dataset
-UTILITY_DATASET_PATH = '/kaggle/input/datasets/michaelnabil88/vasnet-utils'
+UTILITY_DATASET_PATH = '/kaggle/input/datasets/hosamhazem/vasnet-model-scripts'
 sys.path.append(UTILITY_DATASET_PATH)
 
 print("Utility files linked successfully.")
